@@ -20,30 +20,14 @@ angular.module('starter.services', [])
 })
 
 .factory('Browses', function($http){
-    var browseslists = [];
-
-    $http.get('http://localhost:8100/js/test_data.json')
-        .success(function(data, status, headers, config){
-            console.log('***success***')
-            console.log(status)
-        })
-        .error(function(data, status, headers, config){
-            console.log('***error***')
-            console.log('data: %o, status: %o', data, status)
-        })
-        .then(function(res){
-            console.log('then')
-            browseslists = res.data;
-            console.log('data: ', browseslists[0].title);
-        })
-        console.log('test: ', browseslists)
     return {
-        all: function(){
-            console.log('all ', browseslists)
-            return browseslists;
-        },
-        get: function(browsesId){
-            return browseslists[browsesId];
+        all: function(callback){
+            $http.get('http://localhost:8100/js/test_data.json')
+                .success(callback)
+                .error(function(data, status, headers, config){
+                    console.log('***error***')
+                    console.log('data: %o, status: %o', data, status)
+                })
         }
     };
 });

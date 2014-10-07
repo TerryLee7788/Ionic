@@ -42,23 +42,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('BrowsesCtrl', function($scope, Browses, $http) {
-    // var browseslists = [];
-
-    // $http.get('http://localhost:8100/js/test_data.json')
-    //     .success(function(data, status, headers, config){
-    //         console.log('***success***')
-    //         console.log(status)
-    //     })
-    //     .error(function(data, status, headers, config){
-    //         console.log('***error***')
-    //         console.log('data: %o, status: %o', data, status)
-    //     })
-    //     .then(function(res){
-    //         console.log('then')
-    //         $scope.browseslists = res.data;
-    //         console.log('data: ', $scope.browseslists);
-    //     })
-
-  console.log('test: ', Browses.all());
-  $scope.browseslists = Browses.all();
+  Browses.all(function(json){
+    $scope.browseslists = json;
+  });
 })
