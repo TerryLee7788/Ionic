@@ -21,8 +21,9 @@ angular.module('starter.services', [])
 
 .factory('Browses', function($http){
     return {
+        localAPI: 'http://localhost:8100/js/test_data.json',
         all: function(callback){
-            $http.get('http://localhost:8100/js/test_data.json')
+            $http.get(this.localAPI)
                 .success(callback)
                 .error(function(data, status, headers, config){
                     console.log('***error***')
