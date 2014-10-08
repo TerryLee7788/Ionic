@@ -24,12 +24,12 @@ angular.module('starter.services', [])
         localAPI = 'http://localhost:8100/js/test_data.json';
 
     factory.getData = function(callback){
-            $http.get(localAPI)
-                .success(callback)
-                .error(function(data, status, headers, config){
-                    console.log('***error***')
-                    console.log('data: %o, status: %o', data, status)
-                })
+        $http.get(localAPI)
+            .success(callback)
+            .error(function(data, status, headers, config){
+                console.log('***error***')
+                console.log('data: %o, status: %o', data, status)
+            })
     };
     
     return factory;
