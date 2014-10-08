@@ -42,7 +42,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('BrowsesCtrl', function($scope, Browses, $http) {
-  Browses.all(function(json){
+  Browses.getData(function(json){
     $scope.browseslists = json;
   });
 })

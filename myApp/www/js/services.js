@@ -20,15 +20,17 @@ angular.module('starter.services', [])
 })
 
 .factory('Browses', function($http){
-    return {
-        localAPI: 'http://localhost:8100/js/test_data.json',
-        all: function(callback){
-            $http.get(this.localAPI)
+    var factory = {},
+        localAPI = 'http://localhost:8100/js/test_data.json';
+
+    factory.getData = function(callback){
+            $http.get(localAPI)
                 .success(callback)
                 .error(function(data, status, headers, config){
                     console.log('***error***')
                     console.log('data: %o, status: %o', data, status)
                 })
-        }
     };
+    
+    return factory;
 });
